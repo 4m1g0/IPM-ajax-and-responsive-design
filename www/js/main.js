@@ -1,6 +1,6 @@
 (function () {
     function init() {
-        var date = new Date();
+        var date = new Date(2013, 10, 1);
         var month = date.getMonth() + 1;
         var year = date.getFullYear();
         Calendar(month, year);
@@ -17,7 +17,7 @@ Calendar = function (month, year) {
     changeMonth(year, month);
     
     function changeMonth(year, month) {
-        prepareView(year, month);
+	prepareView(year, month);
         removeAllMarks(); // borramos las descripciones anteriores y esperamos por los datos
         clearDescription();
         showLoading();
@@ -41,7 +41,7 @@ Calendar = function (month, year) {
                 }
             }
        }
-       xhr.open('GET', 'http://localhost:8080/cgi-bin/month.py?year=' + year + '&month=' + month, true);
+       xhr.open('GET', '/cgi-bin/month.py?year=' + year + '&month=' + month, true);
        xhr.send();
     }
     
